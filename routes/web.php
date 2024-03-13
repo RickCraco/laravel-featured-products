@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\TrainController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,5 +16,3 @@ use App\Http\Controllers\TrainController;
 Route::get('/', function () {
     return view('home');
 });
-
-Route::get('/trains',[TrainController::class, 'index']);
