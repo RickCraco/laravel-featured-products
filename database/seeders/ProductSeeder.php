@@ -16,19 +16,8 @@ class ProductSeeder extends Seeder
      *
      * @return void
      */
-    public function run(Faker $faker)
+    public function run()
     {
-        for ($i = 0; $i < 10; $i++) {
-            $product = new Product();
-            $product->category_id = Category::all()->random()->id;
-            $product->name = $faker->sentence();
-            $product->description = $faker->text();
-            $product->image = $faker->imageUrl(640, 480);
-            $product->code_ean = $faker->ean13();
-            $product->price = $faker->randomFloat(2, 0, 1000);
-            $product->featured = $faker->boolean();
-            $product->slug = Str::slug($product->name);
-            $product->save();
-        }
+        $products = Product::factory()->count(10)->create();
     }
 }
